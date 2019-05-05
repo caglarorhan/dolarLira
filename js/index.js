@@ -1,4 +1,4 @@
-alert('Done');
+
 function apiCheck(){
     let xhr = new XMLHttpRequest();
     xhr.open('GET','https://api.exchangeratesapi.io/latest?base=USD');
