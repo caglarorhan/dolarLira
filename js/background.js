@@ -6,7 +6,7 @@ chrome.browserAction.setBadgeText({text: '1sec'});
 //
 
 class Xchange{
-    async static get(url){
+    async get(url){
         const response = await fetch(url);
         return await response.json(); //JSON objesi, return edildi
 
@@ -18,11 +18,11 @@ function currentCurrency(){
     let usd2try = request.get(targetURL);
     usd2try.then(datas => {
         let dolarTL =  (Number.parseFloat(datas.rates.TRY).toFixed(2));
-
+//console.log(dolarTL)
         chrome.browserAction.setBadgeText({text: dolarTL});
 
 
-    })
+    }).catch(err=> console.log(`Error:${err}`))
 }
 
 currentCurrency();
